@@ -100,9 +100,7 @@ public class SignInActivity extends AppCompatActivity {
 
         binding.appTextClickSignUp.setOnClickListener(view -> launchActivity(SignInActivity.this, SignUpActivity.class));
 
-        binding.appBtnGoogle.setOnClickListener(view -> {
-            SignIn();
-        });
+        binding.appBtnGoogle.setOnClickListener(view -> {SignIn();});
 
         if (mAuth.getCurrentUser() != null){
             launchActivity(SignInActivity.this, MainActivity.class);
