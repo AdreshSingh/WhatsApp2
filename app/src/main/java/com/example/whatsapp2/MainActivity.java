@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.whatsapp2.Adapters.FragmentsAdaptor;
 import com.example.whatsapp2.databinding.ActivityMainBinding;
 import com.example.whatsapp2.ui.SignInActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         mAuth = FirebaseAuth.getInstance();
+        binding.appViewPager.setAdapter(new FragmentsAdaptor(getSupportFragmentManager()));
+        binding.appTabLayOut.setupWithViewPager(binding.appViewPager);
+
     }
 
     @Override
