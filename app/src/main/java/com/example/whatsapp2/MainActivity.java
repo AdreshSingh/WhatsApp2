@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         binding.appViewPager.setAdapter(new FragmentsAdaptor(getSupportFragmentManager()));
         binding.appTabLayOut.setupWithViewPager(binding.appViewPager);
 
+        setSupportActionBar(binding.topAppBar);
     }
 
     @Override

@@ -17,4 +17,5 @@
     <string name="default_web_id_token">220945371699-u2av5e15fdhej2oqssndlqptbb01tl15.apps.googleusercontent.com</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_pages">App Pages</string>
 </resources>

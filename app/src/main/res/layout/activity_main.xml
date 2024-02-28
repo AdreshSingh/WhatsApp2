@@ -6,23 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/app_name"
+            app:menu="@menu/menu"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/appTabLayOut"
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:background="@color/colorPrimary"
+        android:contentDescription="@string/app_logo_here"
         android:elevation="12dp"
-        app:tabIndicator="@color/white"
-        app:tabSelectedTextColor="@color/white"
-        app:tabMaxWidth="0dp"
         app:tabGravity="fill"
+        app:tabIndicator="@color/white"
+        app:tabMaxWidth="0dp"
         app:tabMode="fixed"
-        app:tabTextColor="@color/white"
-        android:id="@+id/appTabLayOut"
-        />
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/appViewPager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/white" />
 
-        </androidx.viewpager.widget.ViewPager>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/appViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_pages">
+
+    </androidx.viewpager.widget.ViewPager>
 </LinearLayout>
