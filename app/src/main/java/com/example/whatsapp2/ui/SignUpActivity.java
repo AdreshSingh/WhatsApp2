@@ -75,7 +75,12 @@ public class SignUpActivity extends AppCompatActivity {
         binding.appAlreadyHaveAccount.setOnClickListener(view->{
             launchActivity(SignUpActivity.this,SignInActivity.class);
         });
+
+        binding.btnGoogle.setOnClickListener(view ->{
+            Toast.makeText(this, "Google Sing Up work in Progress", Toast.LENGTH_SHORT).show();
+        });
     }
+
     // for launching new Activity from current activity
     private void launchActivity(Context currentActivity, Class<?> nextActivity){
         Intent intent = new Intent(currentActivity,nextActivity);

@@ -1,17 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.ChatDetailActivity"
-    android:background="@drawable/w4">
+    android:background="@drawable/w4"
+    android:orientation="horizontal"
+    android:id="@+id/appParent">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/appToolBarContainer">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/menu"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:minHeight="?attr/actionBarSize"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/avatar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.052"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="3dp"
         android:id="@+id/appChatRecyclerView"
-        android:layout_below=""
         android:layout_above="@id/appLinear"
+        android:layout_below="@id/appToolBarContainer"
         />
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,9 +54,34 @@
         android:id="@+id/appLinear"
         android:layout_alignParentBottom="true"
         >
+
         <EditText
-            android:layout_width="wrap_content"
+            android:id="@+id/appMessage"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            />
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:autofillHints="username,user-email"
+            android:background="@drawable/background_message"
+            android:ems="10"
+            android:hint="@string/enter_your_message_here"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:textColorHint="#757575" />
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/send_background"
+            android:contentDescription="@string/send_message_button"
+            android:padding="5dp"
+            android:src="@drawable/send_icon"
+            tools:ignore="ImageContrastCheck" />
     </LinearLayout>
-</LinearLayout>
+
+</RelativeLayout>

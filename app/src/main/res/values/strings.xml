@@ -20,4 +20,6 @@
     <string name="app_pages">App Pages</string>
     <string name="last_message">last Message</string>
     <string name="devank">Devank</string>
+    <string name="send_message_button">send message </string>
+    <string name="enter_your_message_here">Enter your message here</string>
 </resources>
