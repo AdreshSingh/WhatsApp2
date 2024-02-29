@@ -3,10 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:paddingBottom="5dp"
+    >
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
         android:src="@drawable/avatar3"
         android:layout_marginStart="5dp"
         android:padding="5dp"
@@ -20,26 +23,29 @@
         android:orientation="vertical"
         android:layout_gravity="start"
         android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingEnd="3dp"
         >
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Devank"
-            android:textSize="26sp"
+            android:text="@string/devank"
+            android:textSize="18sp"
             android:textAlignment="textStart"
             android:paddingTop="7dp"
-            android:paddingBottom="7dp"
+            android:paddingBottom="2dp"
             android:textStyle="bold"
             android:id="@+id/appUsername"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Last Message"
+            android:text="@string/last_message"
             android:textAlignment="textStart"
+            android:textSize="14sp"
             android:paddingTop="2dp"
             android:paddingBottom="2dp"
-            android:textStyle="bold"
+            android:textStyle="normal"
             android:id="@+id/appLastMessage"
             />
 
