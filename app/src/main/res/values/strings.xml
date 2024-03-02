@@ -22,4 +22,8 @@
     <string name="devank">Devank</string>
     <string name="send_message_button">send message </string>
     <string name="enter_your_message_here">Enter your message here</string>
+    <string name="app_back_to_chat_screen_option">app back to chat screen option</string>
+    <string name="phone_number">phone number</string>
+    <string name="press_to_call">press to call</string>
+    <string name="press_to_video_call">press to video call</string>
 </resources>

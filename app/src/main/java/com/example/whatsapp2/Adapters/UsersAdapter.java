@@ -1,6 +1,7 @@
 package com.example.whatsapp2.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.whatsapp2.Models.Users;
 import com.example.whatsapp2.R;
+import com.example.whatsapp2.ui.ChatDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
         this.list = list;
         this.ctx = ctx;
     }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -36,6 +39,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
         Users user = list.get(position);
         Picasso.get().load(user.getProfilePic()).placeholder(R.drawable.avatar3).into(holder.profilePic);
         holder.userName.setText(user.getUserName());
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(ctx, ChatDetailActivity.class);
+            intent.putExtra("userId",user.getUserId());
+            intent.putExtra("profilePic",user.getProfilePic());
+            intent.putExtra("userName",user.getUserName());
+            ctx.startActivity(intent);
+        });
     }
 
     @Override
