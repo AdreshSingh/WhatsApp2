@@ -26,4 +26,6 @@
     <string name="phone_number">phone number</string>
     <string name="press_to_call">press to call</string>
     <string name="press_to_video_call">press to video call</string>
+    <string name="text_test">text test</string>
+    <string name="_3_38_pm">3:38 pm</string>
 </resources>

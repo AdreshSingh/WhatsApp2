@@ -14,7 +14,6 @@ import com.squareup.picasso.Picasso;
 public class ChatDetailActivity extends AppCompatActivity {
 
     com.example.whatsapp2.databinding.ActivityChatDetailBinding binding;
-
     FirebaseDatabase database;
     FirebaseAuth auth;
     @Override
