@@ -66,9 +66,6 @@ public class ChatsFragment extends Fragment {
 
             }
         });
-
-
-
         // Inflate the layout for this fragment
         return binding.getRoot();
     }
