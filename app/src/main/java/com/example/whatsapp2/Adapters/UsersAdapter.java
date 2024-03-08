@@ -14,9 +14,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.whatsapp2.Models.Users;
 import com.example.whatsapp2.R;
 import com.example.whatsapp2.ui.ChatDetailActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
     ArrayList<Users> list;
@@ -46,6 +52,27 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
             intent.putExtra("userName",user.getUserName());
             ctx.startActivity(intent);
         });
+
+        //To get last message
+        FirebaseDatabase.getInstance().getReference().child("chats")
+                .child(FirebaseAuth.getInstance().getUid() + user.getUserId())
+                .orderByChild("timestamp")
+                .limitToLast(1)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.hasChildren()){
+                            for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                                holder.lastMessage.setText(String.valueOf(dataSnapshot.child("message").getValue()));
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
     }
 
     @Override

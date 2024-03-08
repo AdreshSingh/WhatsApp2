@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -19,7 +20,10 @@ import com.example.whatsapp2.R;
 import com.example.whatsapp2.databinding.ActivityGroupChatBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -52,7 +56,26 @@ public class GroupChatActivity extends AppCompatActivity {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         binding.appChatRecyclerView.setLayoutManager(linearLayoutManager);
-        
+
+        firebaseDatabase.getReference()
+                        .child("GroupChat")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        messageModels.clear();
+                        for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                            MessageModel model = dataSnapshot.getValue(MessageModel.class);
+                            messageModels.add(model);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
         binding.appSendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

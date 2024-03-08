@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.whatsapp2.Adapters.FragmentsAdaptor;
 import com.example.whatsapp2.databinding.ActivityMainBinding;
 import com.example.whatsapp2.ui.GroupChatActivity;
+import com.example.whatsapp2.ui.SettingsActivity;
 import com.example.whatsapp2.ui.SignInActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         int option = item.getItemId();
         if (option == R.id.appSettings) {
             createToast("Clicked Settings");
+            launchActivity(MainActivity.this, SettingsActivity.class);
         } else if (option == R.id.appGroupChat) {
             launchActivity(MainActivity.this, GroupChatActivity.class);
             createToast("Group chat clicked");

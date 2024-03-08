@@ -30,4 +30,10 @@
     <string name="_3_38_pm">3:38 pm</string>
     <string name="sender">Sender</string>
     <string name="_10_44_30">10:44:30</string>
+    <string name="to_add_user_pic">to add user pic</string>
+    <string name="about">About</string>
+    <string name="type_status_here">Type status here</string>
+    <string name="press_to_go_back">Press to go back</string>
+    <string name="save">Save</string>
+    <string name="enter_name">Enter name</string>
 </resources>
