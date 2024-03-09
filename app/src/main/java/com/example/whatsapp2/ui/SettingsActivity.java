@@ -125,7 +125,7 @@ public class SettingsActivity extends AppCompatActivity {
                     reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            database.getReference().child("Users")
+                            database.getReference().child("User")
                                     .child(mAuth.getUid())
                                     .child("profilePic").setValue(imageUri.toString());
                         }
