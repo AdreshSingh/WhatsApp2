@@ -49,6 +49,7 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.squareup.picasso:picasso:2.71828")
     implementation("androidx.activity:activity:1.8.0")
+    implementation("com.google.firebase:firebase-storage:20.3.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
