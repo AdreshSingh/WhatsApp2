@@ -58,11 +58,13 @@ public class SettingsActivity extends AppCompatActivity {
                                try {
                                    Users users = snapshot.getValue(Users.class);
                                    Picasso.get().load(users.getProfilePic())
-                                           .placeholder(R.drawable.avatar);
+                                           .placeholder(R.drawable.avatar)
+                                           .into(binding.appProfilePic);
+
                                    binding.appUserName.setText(users.getUserName());
                                    binding.appUserStatus.setText(users.getStatus());
                                } catch (Exception ex){
-                                   Toast.makeText(SettingsActivity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+                                   Toast.makeText(SettingsActivity.this,"Error faced "+ ex.getMessage(), Toast.LENGTH_SHORT).show();
                                }
                            }
 
@@ -114,7 +116,7 @@ public class SettingsActivity extends AppCompatActivity {
         assert data != null;
         if (data.getData() != null){
             Uri imageUri = data.getData();
-            binding.imageView2.setImageURI(imageUri);
+            binding.appProfilePic.setImageURI(imageUri);
 
             final StorageReference reference = firebaseStorage.getReference().child("profile_pic")
                     .child(Objects.requireNonNull(mAuth.getUid()));

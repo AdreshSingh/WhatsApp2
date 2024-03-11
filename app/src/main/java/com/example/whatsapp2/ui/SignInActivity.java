@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,10 +23,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
@@ -55,11 +52,13 @@ public class SignInActivity extends AppCompatActivity {
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        try {
-            Objects.requireNonNull(getSupportActionBar()).hide();
-        }catch (Exception ex){
-            Toast.makeText(this, ex.getMessage(), Toast.LENGTH_SHORT).show();
-        }
+
+        // reason : theme does not include basic app bar so it will be always null.
+//        try {
+//            Objects.requireNonNull(getSupportActionBar()).hide();
+//        }catch (Exception ex){
+//            Toast.makeText(this,"error: " +ex.getMessage(), Toast.LENGTH_SHORT).show();
+//        }
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -100,7 +99,7 @@ public class SignInActivity extends AppCompatActivity {
 
         binding.appTextClickSignUp.setOnClickListener(view -> launchActivity(SignInActivity.this, SignUpActivity.class));
 
-        binding.appBtnGoogle.setOnClickListener(view -> {SignIn();});
+        binding.appBtnGoogle.setOnClickListener(view -> SignIn());
 
         if (mAuth.getCurrentUser() != null){
             launchActivity(SignInActivity.this, MainActivity.class);
@@ -136,29 +135,26 @@ public class SignInActivity extends AppCompatActivity {
     private void firebaseAuthWithGoogle(String idToken) {
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken,null);
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+                .addOnCompleteListener(task -> {
 
-                        if (task.isSuccessful()){
-                            Log.d("app-signIn", "onComplete: success");
-                            FirebaseUser user = mAuth.getCurrentUser();
+                    if (task.isSuccessful()){
+                        Log.d("app-signIn", "onComplete: success");
+                        FirebaseUser user = mAuth.getCurrentUser();
 
-                            Users users = new Users();
-                            users.setUserId(Objects.requireNonNull(user).getUid());
-                            users.setUserName(user.getDisplayName());
-                            users.setProfilePic(Objects.requireNonNull(user.getPhotoUrl()).toString());
-                            firebaseDatabase.getReference()
-                                    .child(DATABASE_OBJECT)
-                                    .child(user.getUid())
-                                    .setValue(users);
+                        Users users = new Users();
+                        users.setUserId(Objects.requireNonNull(user).getUid());
+                        users.setUserName(user.getDisplayName());
+                        users.setProfilePic(Objects.requireNonNull(user.getPhotoUrl()).toString());
+                        firebaseDatabase.getReference()
+                                .child(DATABASE_OBJECT)
+                                .child(user.getUid())
+                                .setValue(users);
 //                            updateUI(user);
-                            launchActivity(SignInActivity.this, MainActivity.class);
-                        }
-                        else {
-                            Log.w("app-signIn", "onComplete: unsuccessful: "+task.getException());
+                        launchActivity(SignInActivity.this, MainActivity.class);
+                    }
+                    else {
+                        Log.w("app-signIn", "onComplete: unsuccessful: "+task.getException());
 //                            updateUI(null);
-                        }
                     }
                 });
     }
