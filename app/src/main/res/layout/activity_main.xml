@@ -29,7 +29,7 @@
         android:background="@color/colorPrimary"
         android:contentDescription="@string/app_logo_here"
         app:tabGravity="fill"
-        app:tabIndicator="@color/white"
+        app:tabIndicator="@color/lightGrey"
         app:tabMaxWidth="0dp"
         app:tabMode="fixed"
         app:tabSelectedTextColor="@color/white"
