@@ -36,4 +36,6 @@
     <string name="press_to_go_back">Press to go back</string>
     <string name="save">Save</string>
     <string name="enter_name">Enter name</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="about_app">About App</string>
 </resources>

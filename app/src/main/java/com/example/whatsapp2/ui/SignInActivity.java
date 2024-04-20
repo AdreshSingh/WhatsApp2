@@ -103,6 +103,7 @@ public class SignInActivity extends AppCompatActivity {
 
         if (mAuth.getCurrentUser() != null){
             launchActivity(SignInActivity.this, MainActivity.class);
+            this.finish();
         }
     }
     // for launching new Activity from current activity

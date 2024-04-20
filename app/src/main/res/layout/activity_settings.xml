@@ -53,7 +53,7 @@
             android:layout_marginTop="10dp"
             >
          <TextView
-             android:layout_width="100dp"
+             android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:text="User name"
              android:textColor="@color/white"
@@ -62,12 +62,14 @@
              tools:ignore="HardcodedText" />
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:id="@+id/appUserName"
                 android:hint="@string/enter_name"
                 android:textColorHint="@color/white"
                 android:autofillHints="username"
                 android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:layout_marginStart="13dp"
                 />
         </LinearLayout>
         <LinearLayout
@@ -86,12 +88,13 @@
                 />
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:id="@+id/appUserStatus"
                 android:hint="@string/type_status_here"
                 android:textColorHint="@color/white"
                 android:autofillHints="none"
                 android:inputType="textLongMessage"
+                android:textColor="@color/white"
                 />
         </LinearLayout>
         <androidx.appcompat.widget.AppCompatButton
@@ -123,7 +126,7 @@
             app:drawableStartCompat="@drawable/privacy"
             android:drawablePadding="21dp"
             android:padding="10dp"
-            android:text="Privacy Policy"
+            android:text="@string/privacy_policy"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -136,46 +139,7 @@
             app:drawableStartCompat="@drawable/about"
             android:drawablePadding="26.5dp"
             android:padding="10dp"
-            android:text="About Us"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            app:drawableStartCompat="@drawable/invite"
-            android:drawablePadding="26.5dp"
-            android:padding="10dp"
-            android:text="Invite"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            app:drawableStartCompat="@drawable/notification"
-            android:drawablePadding="26.5dp"
-            android:padding="10dp"
-            android:text="Notification"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            app:drawableStartCompat="@drawable/help"
-            android:drawablePadding="26.5dp"
-            android:padding="10dp"
-            android:text="Help"
+            android:text="@string/about_app"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
