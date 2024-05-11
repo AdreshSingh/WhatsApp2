@@ -37,7 +37,7 @@ public class FragmentsAdaptor extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        String[] title = {"Chats","Status","Calls"};
+        String[] title = {"Chats","Status","Users"};
          super.getPageTitle(position);
          return title[position];
 

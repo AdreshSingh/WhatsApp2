@@ -8,9 +8,10 @@ public class Users {
     String email;
     String password;
     String lastMessage;
+    long timeStamp;
     public Users(){}
 
-    public Users(String userId, String profilePic,String userName, String status, String email, String password, String lastMessage) {
+    public Users(String userId, String profilePic,String userName, String status, String email, String password, String lastMessage,long timeStamp) {
         this.userId = userId;
         this.profilePic = profilePic;
         this.userName = userName;
@@ -18,12 +19,17 @@ public class Users {
         this.email = email;
         this.password = password;
         this.lastMessage = lastMessage;
+        this.timeStamp = timeStamp;
     }
 
     public Users(String userName, String email, String password) {
         this.userName = userName;
         this.email = email;
         this.password = password;
+    }
+
+    public Users(long timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     public String getUserId() {
@@ -81,4 +87,7 @@ public class Users {
     public void setLastMessage(String lastMessage) {
         this.lastMessage = lastMessage;
     }
+    public long getTimeStamp() { return timeStamp; }
+
+    public void setTimeStamp(long timeStamp) { this.timeStamp = timeStamp; }
 }
